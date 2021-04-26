@@ -1,12 +1,15 @@
-import { buscarHeroeAsync } from './promesas';
+import { buscarHeroeAsync, buscarHeroe } from './promesas';
 
 const heroesId = ['ironman', 'capitanAmerica', 'spiderman'];
 
 export const obtenerHeroesArr = async() => {
+    /*
     const heroesArr = [];
     for (const id of heroesId) {
-        const heroe = await buscarHeroeAsync(id);
-        heroesArr.push(heroe);
+        heroesArr.push(buscarHeroe(id));
     }
-    return heroesArr;
+    return await Promise.all(heroesArr);
+    */
+
+    return await Promise.all(heroesId.map(buscarHeroe));
 }
